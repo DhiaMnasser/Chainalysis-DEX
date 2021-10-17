@@ -30,12 +30,4 @@ ul {
   font-size: 10px;
 }
 
-.delete-icon {
-  display: none;
-  position: absolute;
-  right: 6px;
-}
 
-.coin:hover .delete-icon {
-  display: block;
-}

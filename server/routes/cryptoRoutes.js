@@ -7,15 +7,15 @@ const {
   getMarkets,
   getCoinDetails
 
-} = require("../controllers/coingeckoController");
+} = require("../controllers/cryptoController");
 
 //import validator
 const { runValidation } = require("../validators");
 
 
 //pass on controllers
-route.get("/coingecko/markets", getMarkets);
-route.post("/coingecko/coinDetails", getCoinDetails);
+route.get("/crypto/markets", getMarkets);
+route.post("/crypto/coinDetails", getCoinDetails);
 
 
 module.exports = route;

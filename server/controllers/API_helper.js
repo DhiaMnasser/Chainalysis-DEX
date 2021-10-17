@@ -8,7 +8,7 @@ module.exports = {
     */
     make_API_call : function(url){
         return new Promise((resolve, reject) => {
-            request(url, { json: true }, (err, res, body) => {
+            request(url, { json: true, headers: {'User-Agent': 'request'} }, (err, res, body) => {
               if (err) reject(err)
               resolve(body)
             });

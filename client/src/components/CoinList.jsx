@@ -11,7 +11,7 @@ const CoinList = () => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const response = await API.get("/api/coingecko/markets");
+      const response = await API.get("/api/crypto/markets");
       console.log('response',response);
       setCoins(response.data);
       setIsLoading(false);

@@ -7,8 +7,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 
 //bring routes
-const coingeckoRoutes = require("./routes/coingeckoRoutes");
-const binanceRoutes = require("./routes/binanceRoutes");
+const cryptoRoutes = require("./routes/cryptoRoutes");
 
 //app
 const app = express();
@@ -25,9 +24,7 @@ if (process.env.NODE_ENV == "development") {
 }
 
 //routes middleware
-// app.use("/", ()=>{console.log('hello')});
-app.use("/api", coingeckoRoutes);
-app.use("/api", binanceRoutes);
+app.use("/api", cryptoRoutes);
 
 //port
 const port = process.env.PORT || 8001;
