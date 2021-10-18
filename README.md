@@ -5,7 +5,7 @@ The Live application can be found here: \
 
 ## Detailed instructions on how to build and run 
 this can be found in each "client" and "server" directories. \
-If run locally, the baseURL in "/client/src/apis/coinGecko.js" must be changed to "http://localhost:8005"
+If run locally, the baseURL in "[/client/src/apis/coinGecko.js](https://github.com/DhiaMnasser/Chainalysis-DEX/blob/master/client/src/apis/coinGecko.js)" must be changed to "http://localhost:8005"
 
 ## Questionnaire:
 
@@ -22,7 +22,6 @@ In this app, I tried to deliver a modern design to the users given the limited t
 Here is a list of my go-to approaches: 
 1. Ease server load by Distributing Traffic
 2. Reduce read load by adding more read replicas.
-3. Reduce write requests.
 
 **What are some other enhancements you would have made, if you had more time to do this implementation**
 
