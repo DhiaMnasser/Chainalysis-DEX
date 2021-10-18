@@ -3,6 +3,8 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
+const path = require("path");
 require("dotenv").config();
 const mongoose = require("mongoose");
 
@@ -14,23 +16,23 @@ const app = express();
 
 //middleware
 app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-
 //cors
-if (process.env.NODE_ENV == "development") {
-  app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
-}
-app.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next()
-});
+app.use(cors({ origin: `*` }));
+
 
 //routes middleware
 app.use("/api", cryptoRoutes);
 
+
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 //port
 const port = process.env.PORT || 8001;
 app.listen(port, () => {
