@@ -19,6 +19,8 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors());
+
 
 //cors
 app.use(cors({ origin: `*` }));
@@ -28,13 +30,13 @@ app.use(cors({ origin: `*` }));
 app.use("/api", cryptoRoutes);
 
 
-app.use(express.static(path.resolve(__dirname, "./client/build")));
-// Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-});
+// app.use(express.static(path.resolve(__dirname, "./client/build")));
+// // Step 2:
+// app.get("*", function (request, response) {
+//   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+// });
 //port
-const port = process.env.PORT || 8001;
+const port = process.env.PORT || 8005;
 app.listen(port, () => {
   console.log(`Your server is running on port ${port}`);
 });
